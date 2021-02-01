@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AntiSleepPlayer.Net", "AntiSleepPlayer.Net\AntiSleepPlayer.Net.csproj", "{DED27966-F8F2-4A7F-B770-0DF924B060BF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AntiSleepService", "AntiSleepService\AntiSleepService.csproj", "{202704F2-0747-4386-9AAB-04765386A1DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DED27966-F8F2-4A7F-B770-0DF924B060BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DED27966-F8F2-4A7F-B770-0DF924B060BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DED27966-F8F2-4A7F-B770-0DF924B060BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DED27966-F8F2-4A7F-B770-0DF924B060BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{202704F2-0747-4386-9AAB-04765386A1DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{202704F2-0747-4386-9AAB-04765386A1DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{202704F2-0747-4386-9AAB-04765386A1DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{202704F2-0747-4386-9AAB-04765386A1DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
