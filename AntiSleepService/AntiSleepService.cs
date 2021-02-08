@@ -9,7 +9,6 @@ namespace WindowsService2
 {
     public partial class AntiSleepService : ServiceBase
     {
-        private int deviceNumber;
         private Timer timer;
         private const string soundFilePath = @"D:\Entwicklung\MonitorAntiSleep\AntiSleepService\bin\Debug\10Hz.wav";
 
@@ -22,11 +21,8 @@ namespace WindowsService2
 
         protected override void OnStart(string[] args)
         {
-            deviceNumber = FindCorrectDeviceNumber();
-
             Task loopTask = new Task(() =>
             {
-
                 timer = new Timer(60 * 1000 * 15);
                 timer.Elapsed += OnTimerElapsed;
                 timer.Start();
@@ -52,8 +48,10 @@ namespace WindowsService2
             using (var audioFile = new AudioFileReader(soundFilePath))
             using (var outputDevice = new WaveOutEvent())
             {
+                int deviceNumber = FindCorrectDeviceNumber();
                 outputDevice.DeviceNumber = deviceNumber;
                 outputDevice.Init(audioFile);
+                outputDevice.Volume = 1;
                 outputDevice.Play();
                 while (outputDevice.PlaybackState == PlaybackState.Playing)
                 {
