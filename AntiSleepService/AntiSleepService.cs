@@ -9,9 +9,8 @@ namespace WindowsService2
 {
     public partial class AntiSleepService : ServiceBase
     {
-        private Timer timer;
         private const string soundFilePath = @"D:\Entwicklung\MonitorAntiSleep\AntiSleepService\bin\Debug\10Hz.wav";
-
+        private Timer timer;
 
         public AntiSleepService()
         {
@@ -38,6 +37,20 @@ namespace WindowsService2
             DisposeTimer();
         }
 
+        private static int FindCorrectDeviceNumber()
+        {
+            for (int deviceNumber = -1; deviceNumber < WaveOut.DeviceCount; deviceNumber++)
+            {
+                var capabilities = WaveOut.GetCapabilities(deviceNumber);
+                if (capabilities.ProductName.Contains("Lautsprecher"))
+                {
+                    return deviceNumber;
+                }
+            }
+
+            return -1;
+        }
+
         private void OnTimerElapsed(object sender, ElapsedEventArgs e)
         {
             PlaySound();
@@ -58,20 +71,6 @@ namespace WindowsService2
                     Thread.Sleep(1000);
                 }
             }
-        }
-
-        private static int FindCorrectDeviceNumber()
-        {
-            for (int deviceNumber = -1; deviceNumber < WaveOut.DeviceCount; deviceNumber++)
-            {
-                var capabilities = WaveOut.GetCapabilities(deviceNumber);
-                if (capabilities.ProductName.Contains("Focusrite"))
-                {
-                    return deviceNumber;
-                }
-            }
-
-            return -1;
         }
 
         private void DisposeTimer()
